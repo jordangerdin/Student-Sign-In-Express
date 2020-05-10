@@ -1,6 +1,8 @@
 <template>
   <div id="app">
 
+    <h1 class="m-2 p-2">Student Sign In</h1>
+
     <NewStudentForm v-on:student-added="newStudentAdded"></NewStudentForm>
     <StudentTable 
       v-bind:students="students" 
@@ -35,7 +37,7 @@ export default {
     this.updateStudents()
   },
   methods: {
-    newStudentAdded(student) {
+    newStudentAdded(student){
       this.$student_api.addStudent(student).then( student => {
         this.updateStudents()
       }).catch(err => {
